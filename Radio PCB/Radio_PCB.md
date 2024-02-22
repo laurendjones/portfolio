@@ -1,3 +1,0 @@
-# Radio PCB
-
-Radio PCB facilitates wireless data communication through an Xbee 3 Pro module. It features a 12V input for power and a buck controller that safely steps down the voltage from 12V to 3V3, alongside an STM32 microcontroller. I debugged a working PCB; the PCB safely steps the voltage down from 12V to 3.3V, and forwards a packet from an STM32 to an Xbee via UART and then receives the packet on the second Xbee. 
