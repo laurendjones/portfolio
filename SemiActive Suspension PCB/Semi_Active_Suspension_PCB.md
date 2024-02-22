@@ -1,3 +1,0 @@
-# Semi-Active SUspension PCB
-
-Semi-Active Suspension PCB features a STM32 microcontroller which controls 4 solenoid drivers with overcurrent protection . This setup enables us to dynamically adjust the damping force of our car's suspension—a pivotal aspect of our off-road racing vehicle. I debugged a working PCB; the PCB drives four solenoid valves, communicates over CAN, and has software scalable PWM.
