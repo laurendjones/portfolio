@@ -1,4 +1,4 @@
-# portfolio
+# Lauren Jones Engineering Portfolio
 
 Hi! My name is Lauren Jones and I am a second-year Computer Engineering student at Cal Poly in San Luis Obispo, CA. 
 Welcome to my engineering portfolio!
