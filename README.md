@@ -8,6 +8,6 @@ My contact information is: ljones46@calpoly.edu and 916-517-5383. My linkedin is
 
 ![image (31)](https://github.com/laurendjones/portfolio/assets/61713371/23f34526-d014-42c1-b310-6d56519975af)
 ![image (13)](https://github.com/laurendjones/portfolio/assets/61713371/204ec8d2-be2f-40c3-9d37-57485909b355)
-![image (30)](https://github.com/laurendjones/portfolio/assets/61713371/1d7f7de8-2a2a-4a64-a432-2daf6107d950)
+![image (33)](https://github.com/laurendjones/portfolio/assets/61713371/de2b32ff-b279-4ab6-b400-3354a615968e)
 ![image](https://github.com/laurendjones/portfolio/assets/61713371/fa2c61e5-d6f7-4019-afdf-94fff8e41af7)
 
