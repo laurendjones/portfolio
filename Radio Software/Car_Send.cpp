@@ -14,27 +14,9 @@ bool xbeeWrite = false;
 int numReceivedMessages = 0;
 
 uint8 startByte = 42;
-uint8 endByte = 69;
+uint8 endByte = 59;
 
-struct eCVTData
-{
-    int64 data1;
-    int64 data2;
-    int64 data3;
-    int64 data4;
-    int64 data5;
-    int64 data6;
-    int64 data7;
-    int64 data8;
-    int64 data9;
-    int64 data10;
-    int64 data11;
-    int64 data12;
-    int64 data13;
-    int64 data14;
-    int64 data15;
-    int64 data16;
-} eCVTData;
+struct car_data _car_data;
 
 void setup()
 {
@@ -56,62 +38,79 @@ void receiveCan()
     switch (CAN_RX_msg.id)
     {
     case ECVT_DATA1:
-        memcpy(&eCVTData.data1, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 0, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA2:
-        memcpy(&eCVTData.data2, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 8, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA3:
-        memcpy(&eCVTData.data3, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 16, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA4:
-        memcpy(&eCVTData.data4, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 24, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA5:
-        memcpy(&eCVTData.data5, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 32, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA6:
-        memcpy(&eCVTData.data6, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 40, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA7:
-        memcpy(&eCVTData.data7, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 48, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA8:
-        memcpy(&eCVTData.data8, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 56, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA9:
-        memcpy(&eCVTData.data9, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 64, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA10:
-        memcpy(&eCVTData.data10, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 72, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA11:
-        memcpy(&eCVTData.data11, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 80, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA12:
-        memcpy(&eCVTData.data12, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 88, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA13:
-        memcpy(&eCVTData.data13, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 96, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA14:
-        memcpy(&eCVTData.data14, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 104, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA15:
-        memcpy(&eCVTData.data15, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 112, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
     case ECVT_DATA16:
-        memcpy(&eCVTData.data16, CAN_RX_msg.buf, CAN_RX_msg.len);
+        memcpy(&_car_data.ecvt + 120, CAN_RX_msg.buf, CAN_RX_msg.len);
         return;
-        /*
-        case CLUTCH_DATA1:
-            return;
-        case CLUTCH_DATA2:
-            return;
-        case CLUTCH_DATA3:
-            return;
-        case CLUTCH_DATA4:
-            return;*/
+    case VOLTAGES:
+        memcpy(&_car_data.electrons + 0, CAN_RX_msg.buf, CAN_RX_msg.len);
+        return;
+    case CURRENTS:
+        memcpy(&_car_data.electrons + 8, CAN_RX_msg.buf, CAN_RX_msg.len);
+        return;
+    case ELEC_DATA3:
+        memcpy(&_car_data.electrons + 16, CAN_RX_msg.buf, CAN_RX_msg.len);
+        return;
+    case IMU_DATA1:
+        memcpy(&_car_data.imu + 0, CAN_RX_msg.buf, CAN_RX_msg.len);
+        return;
+    case IMU_DATA2:
+        memcpy(&_car_data.imu + 8, CAN_RX_msg.buf, CAN_RX_msg.len);
+        return;
+    case IMU_DATA3:
+        memcpy(&_car_data.imu + 16, CAN_RX_msg.buf, CAN_RX_msg.len);
+        return;
+    case IO:
+        _car_data.logging = (CAN_RX_msg.buf[0] & 0b01000000) >> 6;
+        _car_data.launch = (CAN_RX_msg.buf[0] & 0b0010000) >> 5;
+        _car_data.susSoft = (CAN_RX_msg.buf[0] & 0b00010000) >> 4;
+        _car_data.susHard = (CAN_RX_msg.buf[0] & 0b00001000) >> 3;
+        _car_data.spare = (CAN_RX_msg.buf[0] & 0b00000100) >> 2;
+        _car_data.clutchMode = CAN_RX_msg.buf[0] & 0b00000011;
+        return;
     }
 }
 
@@ -130,7 +129,13 @@ void transmitXbee()
         xbeeSerial.write((byte *)&startByte, sizeof(startByte));
 
     // Write data
-    xbeeSerial.write((byte *)&eCVTData, sizeof(ecvt_data));
+    xbeeSerial.write((byte *)&_car_data.ecvt, sizeof(_car_data.ecvt));
+    xbeeSerial.write((byte *)&_car_data.electrons.voltageSenseBatt, sizeof(_car_data.electrons.voltageSenseBatt));
+    xbeeSerial.write((byte *)&_car_data.imu.gpsLatitude, sizeof(_car_data.imu.gpsLatitude));
+    xbeeSerial.write((byte *)&_car_data.imu.gpsLongitude, sizeof(_car_data.imu.gpsLongitude));
+    xbeeSerial.write((byte *)&_car_data.logging, sizeof(_car_data.logging));
+    xbeeSerial.write((byte *)&_car_data.launch, sizeof(_car_data.launch));
+    xbeeSerial.write((byte *)&_car_data.clutchMode, sizeof(_car_data.clutchMode));
 
     // End bits - 69 x 4
     for (int i = 0; i < 4; i++)
