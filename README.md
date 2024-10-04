@@ -1,10 +1,10 @@
 # Lauren Jones Engineering Portfolio
 
-Hi! My name is Lauren Jones and I am a second-year Computer Engineering student at Cal Poly in San Luis Obispo, CA. 
+Hi! My name is Lauren Jones and I am a third-year Computer Engineering student at Cal Poly in San Luis Obispo, CA. 
 Welcome to my engineering portfolio!
 
 Please click on a folder to see my work for PCB design and software. 
-My contact information is: ljones46@calpoly.edu and 916-517-5383. My linkedin is http://www.linkedin.com/in/lauren-d-jones 
+My contact information is: ljones46@calpoly.edu and 916-517-5383. My linkedin is http://www.linkedin.com/in/lauren-d-jones.
 
 ![image (31)](https://github.com/laurendjones/portfolio/assets/61713371/23f34526-d014-42c1-b310-6d56519975af)
 ![image](https://github.com/user-attachments/assets/60515191-677e-4cea-ba53-b04f82e0dad8)
